@@ -3,4 +3,10 @@
 This repo is a parent repo to install all MisEnPlace configurations. To
 install, simply run:
 
+#+BEGIN_SRC bash
+wget https://raw.githubusercontent.com/jordans1882/misenplace/master/misenplace-installer.sh
+chmod +x misenplace-installer.sh
+./misenplace-installer.sh
+#+END_SRC
+
 
