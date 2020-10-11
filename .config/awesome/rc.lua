@@ -664,7 +664,7 @@ globalkeys = table_join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ modkey,           }, "d", function () awful.spawn("rofi -modi 'run,ssh' -show run") end,
+    awful.key({ modkey,           }, "p", function () awful.spawn("rofi -modi 'run,ssh' -show run") end,
               {description = "open rofi", group = "launcher"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,

@@ -1,5 +1,6 @@
 #! /bin/bash
 
-git clone --recurse-submodules git@github.com:jordans1882/misenplace.git $XDG_CONFIG_HOME/misenplace
-cd $XDG_CONFIG_HOME/misenplace
-# make
+cwd=$(pwd)
+
+ln -s $cwd/.config/awesome ~/.config/awesome
+ln -s $cwd/.bashrc ~/.bashrc
