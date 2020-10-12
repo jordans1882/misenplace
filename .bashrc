@@ -92,6 +92,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+
+alias q='exit'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -133,3 +136,11 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+COLOR_DIR="$HOME/.config/alacritty/colors"
+LIGHT_COLOR='base16-gruvbox-light-soft.yml'
+DARK_COLOR='base16-gruvbox-dark-soft.yml'
+
+alias day="alacritty-colorscheme -C $COLOR_DIR -a $LIGHT_COLOR"
+alias night="alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR"
