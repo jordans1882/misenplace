@@ -1,7 +1,16 @@
 [ -d ~/.scripts ] && export PATH="~/.scripts:$PATH"
 export PATH="~/.local/bin:$PATH"
+
+# aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 alias q='exit'
 
+
+source ~/.config-local/paths.sh
+source ~/.config-local/tools.sh
+source ~/.private/aliases.sh
 
 COLOR_DIR="$HOME/.config/alacritty/colors"
 LIGHT_COLOR='base16-gruvbox-light-soft.yml'

@@ -14,7 +14,7 @@ local os, math, string = os, math, string
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/smurf"
 theme.wallpaper                                 = theme.dir .. "/wall3.png"
-theme.font                                      = "UbuntuMono Nerd Font Mono 14"
+theme.font                                      = "UbuntuMono Nerd Font Mono 18"
 theme.fg_normal                                 = "#FEFEFE"
 theme.fg_focus                                  = "#32D6FF"
 theme.fg_urgent                                 = "#C83F11"
@@ -99,7 +99,7 @@ local separators = lain.util.separators
 
 -- Binary clock
 local binclock = require("themes.powerarrow.binclock"){
-    height = 16,
+    height = 28,
     show_seconds = true,
     color_active = theme.fg_normal,
     color_inactive = theme.bg_focus
@@ -339,7 +339,7 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 16, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 26, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {

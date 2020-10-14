@@ -5,5 +5,3 @@ LIGHT_COLOR='base16-gruvbox-light-soft.yml'
 DARK_COLOR='base16-gruvbox-dark-soft.yml'
 
 alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR
-
-

@@ -144,3 +144,21 @@ DARK_COLOR='base16-gruvbox-dark-soft.yml'
 
 alias day="alacritty-colorscheme -C $COLOR_DIR -a $LIGHT_COLOR"
 alias night="alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR"
+
+source ~/git_repos/wd/wd
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jordan/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jordan/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jordan/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jordan/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

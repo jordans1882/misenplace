@@ -379,6 +379,7 @@ local themes = {
 
 local chosen_theme = themes[11]
 local modkey       = "Mod4"
+local hyperkey     = "Mod3"
 local altkey       = "Mod1"
 local terminal     = "alacritty"
 local editor       = os.getenv("EDITOR") or "nvim"
