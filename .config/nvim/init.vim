@@ -1,96 +1,62 @@
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
+set notimeout
+
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-default branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-
-
-Plug 'neovim/nvim-lspconfig'
+" {{{ Vim plugs
+"
+" Asthetics
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'glepnir/dashboard-nvim'
 
-" {{{ Which-key config
-" Plug 'liuchengxu/vim-which-key'
-" let g:maplocalleader = ','
-" let g:which_key_map['w'] = {
-"       \ 'name' : '+windows' ,
-"       \ 'w' : ['<C-W>w'     , 'other-window']          ,
-"       \ 'd' : ['<C-W>c'     , 'delete-window']         ,
-"       \ '-' : ['<C-W>s'     , 'split-window-below']    ,
-"       \ '|' : ['<C-W>v'     , 'split-window-right']    ,
-"       \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-"       \ 'h' : ['<C-W>h'     , 'window-left']           ,
-"       \ 'j' : ['<C-W>j'     , 'window-below']          ,
-"       \ 'l' : ['<C-W>l'     , 'window-right']          ,
-"       \ 'k' : ['<C-W>k'     , 'window-up']             ,
-"       \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-"       \ 'J' : [':resize +5'  , 'expand-window-below']   ,
-"       \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-"       \ 'K' : [':resize -5'  , 'expand-window-up']      ,
-"       \ '=' : ['<C-W>='     , 'balance-window']        ,
-"       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-"       \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-"       \ '?' : ['Windows'    , 'fzf-window']            ,
-"       \ }
-" 
-" call which_key#register(',', "g:which_key_map")
-" 
-" nnoremap <silent> <leader> :<c-u>WhichKey ','<CR>
-" vnoremap <silent> <leader> :<c-u>WhichKeyVisual ','<CR>
-" }}} Which-key config
+" }}} Vim plugs
 
-" Initialize plugin system
 call plug#end()
 
-
-augroup myvimrc
-  au!
-  au BufWritePost init.vim,.vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
-
+" {{{ theme-settings
 " set background=light
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme seoul256-light
+set background=light
+
+let t:is_transparent = 1                                                                    
+" hi Normal guibg=#111111 ctermbg=black                                                       
+hi Normal guibg=NONE ctermbg=NONE                                                           
+let t:is_transparent = 1                                                                    
+
 
 function Day()
-	colorscheme gruvbox
+	colorscheme seoul256-light
 	set background=light
+  hi Normal guibg=NONE ctermbg=NONE                                                           
+  :! day
+endfunction
+
+function Dusk()
+	colorscheme desert
+	set background=light
+  hi Normal guibg=NONE ctermbg=NONE                                                           
+  :! day
+endfunction
+
+function Evening()
+	colorscheme gruvbox
+	set background=dark
+  hi Normal guibg=NONE ctermbg=NONE                                                           
+  :! night
 endfunction
 
 function Night()
 	colorscheme gruvbox
 	set background=dark
+  hi Normal guibg=NONE ctermbg=NONE                                                           
+  :! night
 endfunction
 
 command! Day call Day()
+command! Dusk call Dusk()
+command! Evening call Evening()
 command! Night call Night()
 
 " Set tab width to 2 columns
@@ -100,10 +66,43 @@ set shiftwidth=2
 " Use spaces when pressing <tab> key
 set expandtab
 
+let t:is_transparent = 0                                                                        
+function! Toggle_transparent_background()                                                       
+  if t:is_transparent == 0                                                                      
+    hi Normal guibg=#111111 ctermbg=black                                                       
+    let t:is_transparent = 1                                                                    
+  else                                                                                          
+    hi Normal guibg=NONE ctermbg=NONE                                                           
+    let t:is_transparent = 0                                                                    
+  endif                                                                                         
+endfunction                                                                                     
+nnoremap <C-x><C-t> :call Toggle_transparent_background()<CR>
 
-"TODO: fix lsp setup...
-"  lua <<EOF
-"  vim.cmd('packadd nvim-lspconfig')  -- If installed as a Vim "package".
-"  require'nvim_lsp'.gopls.setup{}
-"  require'nvim_lsp'.pls.setup{}
-"  EOF
+
+" }}} theme-settings
+
+" {{{ Config file fxs
+"if (!exists('*Reload'))
+"  function Reload() abort
+"    " your path will probably be different
+"    for f in split(glob('~/.config/nvim/autoload/*'), '\n')
+"      exe 'source' f
+"    endfor
+"
+"    source $MYVIMRC
+"  endfunction
+"endif
+"nnoremap <silent> <Leader><Leader> :call SourceConfig()<cr>
+
+if (!exists('*Reload'))
+  function! Reload()
+    source $MYVIMRC
+  endfunction
+endif
+
+command! Config :e $MYVIMRC
+command! Reload source $MYVIMRC
+" command! Config call Config()
+" }}} Config file fxs
+
+" vim: set foldmethod=marker:
