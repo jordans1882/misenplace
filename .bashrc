@@ -84,6 +84,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+
+# alias ls='lsd'
+
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -119,14 +122,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+source ~/.wd
 
 # Sets the Mail Environment Variable
 # MAIL=/var/spool/mail/jordan && export MAIL
 
 # Source fzf if present
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 [ -f ~/.private/paths.sh ] && source ~/.private/paths.sh
+[ -f ~/.private/aliases.sh ] && source ~/.private/aliases.sh
 
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
@@ -142,10 +146,8 @@ COLOR_DIR="$HOME/.config/alacritty/colors"
 LIGHT_COLOR='base16-gruvbox-light-soft.yml'
 DARK_COLOR='base16-gruvbox-dark-soft.yml'
 
-alias day="alacritty-colorscheme -C $COLOR_DIR -a $LIGHT_COLOR"
-alias night="alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR"
-
-source ~/git_repos/wd/wd
+# alias day="alacritty-colorscheme -C $COLOR_DIR -a $LIGHT_COLOR"
+# alias night="alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -162,3 +164,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+CONDA_AUTO_ACTIVATE_BASE=false
+
+eval "$(starship init bash)"
+
+alias ls='lsd'

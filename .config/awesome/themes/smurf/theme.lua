@@ -116,6 +116,24 @@ theme.cal = lain.widget.calendar({
     }
 })
 
+
+-- Pacman watcher
+ -- local pacman = wibox.widget.imagebox(theme.widget_task)
+ -- lain.widget.contrib.task.attach(task, {
+ --     -- do not colorize output
+ --     show_cmd = "task | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g'"
+ -- })
+
+-- local pacman = wibox.widget.imagebox(theme.widget_task)
+-- lain.widget.contrib.task.attach(pacman, {
+--     -- do not colorize output
+--     show_cmd = "echo 'Hello World'"
+-- })
+
+local pacman = awful.widget.watch('bash -c "checkupdates | wc -l"', 20, function(widget, stdout)
+    widget:set_markup(markup.fontfg(theme.font, "#ffaf5f", "   " .. stdout .. " "))
+end)
+
 -- Taskwarrior
 local task = wibox.widget.imagebox(theme.widget_task)
 lain.widget.contrib.task.attach(task, {
@@ -375,7 +393,9 @@ function theme.at_screen_connect(s)
             wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_focus),
             arrow(theme.bg_normal, "#343434"),
             wibox.container.background(wibox.container.margin(task, 3, 7), "#343434"),
-            arrow("#343434", "#777E76"),
+            arrow("#343434", "#2E3579"),
+            wibox.container.background(wibox.container.margin(pacman, 0, 0), "#2E3579"),
+            arrow("#2E3579", "#777E76"),
             wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#777E76"),
             arrow("#777E76", "#4B696D"),
             wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), "#4B696D"),
