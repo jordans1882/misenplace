@@ -866,11 +866,11 @@ clientkeys = table_join(
         end ,
         {description = "maximize", group = "client"}),
     awful.key({ modkey,  "Shift"         }, "t",      function (c) c.sticky = not c.sticky            end,
-              {description = "toggle sticky", group = "client"}),
-awful.key({ modkey, "Mod1"    }, "Right",     function () awful.tag.incmwfact( 0.01)    end), -- add descriptions
-awful.key({ modkey, "Mod1"    }, "Left",     function () awful.tag.incmwfact(-0.01)    end),
-awful.key({ modkey, "Mod1"    }, "Down",     function () awful.client.incwfact( 0.01)    end),
-awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)    end)
+              {description = "toggle sticky", group = "client"})
+-- awful.key({ modkey, "Mod1"    }, "Right",     function () awful.tag.incmwfact( 0.01)    end), -- add descriptions
+-- awful.key({ modkey, "Mod1"    }, "Left",     function () awful.tag.incmwfact(-0.01)    end),
+-- awful.key({ modkey, "Mod1"    }, "Down",     function () awful.client.incwfact( 0.01)    end),
+-- awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)    end)
 )
 
 -- Bind all key numbers to tags.
