@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+set -o vi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -94,6 +96,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ls='lsd'
 
 
 alias q='exit'
@@ -132,6 +135,10 @@ source ~/.wd
 [ -f ~/.private/paths.sh ] && source ~/.private/paths.sh
 [ -f ~/.private/aliases.sh ] && source ~/.private/aliases.sh
 
+[ -f ~/.private/aliases.sh ] && source ~/.private/aliases.sh
+
+alias r="ranger"
+
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
@@ -143,11 +150,24 @@ export NVM_DIR="$HOME/.nvm"
 
 
 COLOR_DIR="$HOME/.config/alacritty/colors"
-LIGHT_COLOR='base16-gruvbox-light-soft.yml'
-DARK_COLOR='base16-gruvbox-dark-soft.yml'
+day_color='base16-tomorrow.yml'
+dusk_color='base16-gruvbox-light-soft.yml'
+evening_color='base16-gruvbox-dark-soft.yml'
+night_color='base16-darktooth.yml'
 
+alias day="alacritty-colorscheme -C $COLOR_DIR -a $day_color"
+alias dusk="alacritty-colorscheme -C $COLOR_DIR -a $dusk_color"
+alias evening="alacritty-colorscheme -C $COLOR_DIR -a $evening_color"
+alias night="alacritty-colorscheme -C $COLOR_DIR -a $night_color"
+alias rtags="rdm -j3 &"
+
+<<<<<<< Updated upstream
 # alias day="alacritty-colorscheme -C $COLOR_DIR -a $LIGHT_COLOR"
 # alias night="alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR"
+=======
+
+source ~/git_repos/wd/wd
+>>>>>>> Stashed changes
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -164,8 +184,61 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+<<<<<<< Updated upstream
 CONDA_AUTO_ACTIVATE_BASE=false
 
 eval "$(starship init bash)"
 
 alias ls='lsd'
+=======
+
+COLOR_RED="\033[0;31m"
+COLOR_YELLOW="\033[0;33m"
+COLOR_GREEN="\033[0;32m"
+COLOR_OCHRE="\033[38;5;95m"
+COLOR_BLUE="\033[0;34m"
+COLOR_WHITE="\033[0;37m"
+COLOR_RESET="\033[0m"
+
+
+
+function git_color {
+  local git_status="$(git status 2> /dev/null)"
+  if [[ ! $git_status =~ "working directory clean" ]]; then
+    echo -e $COLOR_RED
+  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+    echo -e $COLOR_YELLOW
+  elif [[ $git_status =~ "nothing to commit" ]]; then
+    echo -e $COLOR_GREEN
+  else
+    echo -e $COLOR_OCHRE
+  fi
+}
+
+
+function git_branch {
+  local git_status="$(git status 2> /dev/null)"
+  local on_branch="On branch ([^${IFS}]*)"
+  local on_commit="HEAD detached at ([^${IFS}]*)"
+  if [[ $git_status =~ $on_branch ]]; then
+    local branch=${BASH_REMATCH[1]}
+    echo "($branch)"
+  elif [[ $git_status =~ $on_commit ]]; then
+    local commit=${BASH_REMATCH[1]}
+    echo "($commit)"
+  fi
+}
+
+
+PS1="\[$COLOR_WHITE\]\n[\W]"          # basename of pwd
+PS1+="\[\$(git_color)\]"        # colors git status
+PS1+="\$(git_branch)"           # prints current branch
+PS1+="\[$COLOR_BLUE\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
+export PS1
+
+
+# source ~/gstatus/gitstatus.prompt.sh
+
+eval "$(starship init bash)"
+
+>>>>>>> Stashed changes
