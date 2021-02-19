@@ -509,7 +509,6 @@ key_bindings:
 # Base16 Equilibrium Gray Dark 256 - alacritty color config
 # Carlo Abelli
 colors:
-<<<<<<< Updated upstream
   # Default colors
   primary:
     background: '0x111111'
@@ -549,40 +548,6 @@ colors:
     - { index: 19, color: '0x262626' }
     - { index: 20, color: '0x919191' }
     - { index: 21, color: '0xc6c6c6' }
-=======
-  # COLORSCHEME: base16-darktooth.yml
-  # Default colors
-  primary:
-    background: '0x1d2021'
-    foreground: '0xa89984'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x1d2021'
-    cursor: '0xa89984'
-
-  # Normal colors
-  normal:
-    black: '0x1d2021'
-    red: '0xfb543f'
-    green: '0x95c085'
-    yellow: '0xfac03b'
-    blue: '0x0d6678'
-    magenta: '0x8f4673'
-    cyan: '0x8ba59b'
-    white: '0xa89984'
-
-  # Bright colors
-  bright:
-    black: '0x665c54'
-    red: '0xfe8625'
-    green: '0x32302f'
-    yellow: '0x504945'
-    blue: '0x928374'
-    magenta: '0xd5c4a1'
-    cyan: '0xa87322'
-    white: '0xfdf4c1'
->>>>>>> Stashed changes
 
 # ALACRITTY_COLORS_END
 
