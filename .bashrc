@@ -161,13 +161,10 @@ alias evening="alacritty-colorscheme -C $COLOR_DIR -a $evening_color"
 alias night="alacritty-colorscheme -C $COLOR_DIR -a $night_color"
 alias rtags="rdm -j3 &"
 
-<<<<<<< Updated upstream
 # alias day="alacritty-colorscheme -C $COLOR_DIR -a $LIGHT_COLOR"
 # alias night="alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR"
-=======
 
 source ~/git_repos/wd/wd
->>>>>>> Stashed changes
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -184,13 +181,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-<<<<<<< Updated upstream
 CONDA_AUTO_ACTIVATE_BASE=false
 
-eval "$(starship init bash)"
-
 alias ls='lsd'
-=======
 
 COLOR_RED="\033[0;31m"
 COLOR_YELLOW="\033[0;33m"
@@ -240,5 +233,3 @@ export PS1
 # source ~/gstatus/gitstatus.prompt.sh
 
 eval "$(starship init bash)"
-
->>>>>>> Stashed changes

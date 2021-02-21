@@ -20,15 +20,12 @@ dusk_color='base16-gruvbox-light-soft.yml'
 evening_color='base16-gruvbox-dark-soft.yml'
 night_color='base16-darktooth.yml'
 
-<<<<<<< Updated upstream
 # alias day="alacritty-colorscheme -C $COLOR_DIR -a $LIGHT_COLOR "
 # alias night="alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR "
 
 # define the wd function
 source '/home/jordan/git_repos/wd/wd'
-=======
 alias day="alacritty-colorscheme -C $COLOR_DIR -a $day_color"
 alias dusk="alacritty-colorscheme -C $COLOR_DIR -a $dusk_color"
 alias evening="alacritty-colorscheme -C $COLOR_DIR -a $evening_color"
 alias night="alacritty-colorscheme -C $COLOR_DIR -a $night_color"
->>>>>>> Stashed changes
