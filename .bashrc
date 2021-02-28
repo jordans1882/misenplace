@@ -97,6 +97,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias ls='lsd'
+alias cl='clear'
 
 
 alias q='exit'
