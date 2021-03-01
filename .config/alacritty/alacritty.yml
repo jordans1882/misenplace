@@ -338,7 +338,7 @@ key_bindings:
   - {key: C, mods: Control|Shift, action: Copy}
   - {key: Q, mods: Control|Shift, action: Quit}
   - {key: N, mods: Control|Shift, action: SpawnNewInstance}
-  - {key: Return, mods: Control, action: ToggleFullscreen}
+    # - {key: Return, mods: Control, action: ToggleFullscreen}
 
   - {key: Home, chars: "\eOH", mode: AppCursor}
   - {key: Home, chars: "\e[H", mode: ~AppCursor}
