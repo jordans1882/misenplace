@@ -509,45 +509,46 @@ key_bindings:
 # Base16 Equilibrium Gray Dark 256 - alacritty color config
 # Carlo Abelli
 colors:
+  # COLORSCHEME: base16-darktooth.yml
   # Default colors
   primary:
-    background: '0x111111'
-    foreground: '0xababab'
+    background: '0x1d2021'
+    foreground: '0xa89984'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x111111'
-    cursor: '0xababab'
+    text: '0x1d2021'
+    cursor: '0xa89984'
 
   # Normal colors
   normal:
-    black:   '0x111111'
-    red:     '0xf04339'
-    green:   '0x7f8b00'
-    yellow:  '0xbb8801'
-    blue:    '0x008dd1'
-    magenta: '0x6a7fd2'
-    cyan:    '0x00948b'
-    white:   '0xababab'
+    black: '0x1d2021'
+    red: '0xfb543f'
+    green: '0x95c085'
+    yellow: '0xfac03b'
+    blue: '0x0d6678'
+    magenta: '0x8f4673'
+    cyan: '0x8ba59b'
+    white: '0xa89984'
 
   # Bright colors
   bright:
-    black:   '0x777777'
-    red:     '0xf04339'
-    green:   '0x7f8b00'
-    yellow:  '0xbb8801'
-    blue:    '0x008dd1'
-    magenta: '0x6a7fd2'
-    cyan:    '0x00948b'
-    white:   '0xe2e2e2'
+    black: '0x665c54'
+    red: '0xfe8625'
+    green: '0x32302f'
+    yellow: '0x504945'
+    blue: '0x928374'
+    magenta: '0xd5c4a1'
+    cyan: '0xa87322'
+    white: '0xfdf4c1'
 
   indexed_colors:
-    - { index: 16, color: '0xdf5923' }
-    - { index: 17, color: '0xe3488e' }
-    - { index: 18, color: '0x1b1b1b' }
-    - { index: 19, color: '0x262626' }
-    - { index: 20, color: '0x919191' }
-    - { index: 21, color: '0xc6c6c6' }
+    - {index: 16, color: '0xdf5923'}
+    - {index: 17, color: '0xe3488e'}
+    - {index: 18, color: '0x1b1b1b'}
+    - {index: 19, color: '0x262626'}
+    - {index: 20, color: '0x919191'}
+    - {index: 21, color: '0xc6c6c6'}
 
 # ALACRITTY_COLORS_END
 
