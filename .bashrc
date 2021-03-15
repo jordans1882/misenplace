@@ -235,4 +235,7 @@ PATH=$HOME/.cask/bin:$PATH
 
 # source ~/gstatus/gitstatus.prompt.sh
 
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+
+
 eval "$(starship init bash)"

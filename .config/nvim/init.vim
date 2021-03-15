@@ -10,17 +10,21 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'glepnir/dashboard-nvim'
 
+Plug 'jpalardy/vim-slime'
+
 " Dark vim packages
-if has('nvim')
+if has('nvim') " Not working...!?
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   Plug 'Shougo/denite.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'jpalardy/vim-slime'
 endif
 
 " }}} Vim plugs
 
+let g:slime_target = "tmux"
 
 " {{{ Denite Config
 " Define mappings
@@ -44,6 +48,8 @@ endfunction
 " }}} Denite Config
 
 call plug#end()
+
+noremap <a-cr> SlimeSendCurrentLine <cr>
 
 " {{{ theme-settings
 " set background=light
@@ -155,8 +161,9 @@ noremap <localleader>bp :bnext<CR>
 noremap <localleader>wv :vsplit<CR>
 noremap <localleader>ws :split<CR>
 noremap <localleader>wh :wincmd h<CR>
-noremap <localleader>wl :wincmd l<CR>
 noremap <localleader>wj :wincmd j<CR>
+noremap <localleader>wk :wincmd k<CR>
+noremap <localleader>wl :wincmd l<CR>
 noremap <localleader>wd :close<CR>
 
 
