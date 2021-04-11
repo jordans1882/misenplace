@@ -88,6 +88,7 @@ fi
 
 
 # alias ls='lsd'
+alias jd='justdo'
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -195,6 +196,7 @@ COLOR_WHITE="\033[0;37m"
 COLOR_RESET="\033[0m"
 
 
+export PATH="/opt/clojurescript/bin:$PATH"
 
 function git_color {
   local git_status="$(git status 2> /dev/null)"
@@ -234,6 +236,7 @@ export PS1
 # source ~/gstatus/gitstatus.prompt.sh
 
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+
 
 
 eval "$(starship init bash)"

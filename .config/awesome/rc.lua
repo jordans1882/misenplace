@@ -873,6 +873,10 @@ clientkeys = table_join(
 -- awful.key({ modkey, "Mod1"    }, "Left",     function () awful.tag.incmwfact(-0.01)    end),
 -- awful.key({ modkey, "Mod1"    }, "Down",     function () awful.client.incwfact( 0.01)    end),
 -- awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)    end)
+-- awful.key({ modkey, "Control"    }, "h",     function () awful.tag.incmwfact( 0.01)    end), -- add descriptions
+-- awful.key({ modkey, "Control"    }, "l",     function () awful.tag.incmwfact(-0.01)    end),
+-- awful.key({ modkey, "Control"    }, "j",     function () awful.client.incwfact( 0.01)    end),
+-- awful.key({ modkey, "Control"    }, "k",     function () awful.client.incwfact(-0.01)    end)
 )
 
 -- Bind all key numbers to tags.

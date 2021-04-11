@@ -1916,6 +1916,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'am': 'https://www.amazon.com/s?k={}',
                        'aw': 'https://wiki.archlinux.org/?search={}',
                        'goog': 'https://www.google.com/search?q={}',
+                       'gm': 'https://mail.google.com/mail/u/0/#search/{}',
                        'scho': 'https://scholar.google.com/scholar?q={}',
                        'hoog': 'https://hoogle.haskell.org/?hoogle={}',
                        're': 'https://www.reddit.com/r/{}', 
@@ -2305,24 +2306,24 @@ config.bind(',sl', 'config-cycle content.user_stylesheets ~/git_repos/solarized-
 # QUTEBROWSER_COLOR_THEME_BEGIN
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 # Base16 qutebrowser template by theova
-# darkmoss scheme by Gabriel Avanzi (https://github.com/avanzzzi)
+# Material Darker scheme by Nate Peterson
 
-base00 = "#171e1f"
-base01 = "#252c2d"
-base02 = "#373c3d"
-base03 = "#555e5f"
-base04 = "#818f80"
-base05 = "#c7c7a5"
-base06 = "#e3e3c8"
-base07 = "#e1eaef"
-base08 = "#ff4658"
-base09 = "#e6db74"
-base0A = "#fdb11f"
-base0B = "#499180"
-base0C = "#66d9ef"
-base0D = "#498091"
-base0E = "#9bc0c8"
-base0F = "#d27b53"
+base00 = "#212121"
+base01 = "#303030"
+base02 = "#353535"
+base03 = "#4A4A4A"
+base04 = "#B2CCD6"
+base05 = "#EEFFFF"
+base06 = "#EEFFFF"
+base07 = "#FFFFFF"
+base08 = "#F07178"
+base09 = "#F78C6C"
+base0A = "#FFCB6B"
+base0B = "#C3E88D"
+base0C = "#89DDFF"
+base0D = "#82AAFF"
+base0E = "#C792EA"
+base0F = "#FF5370"
 
 # set qutebrowser colors
 
