@@ -232,6 +232,8 @@ PS1+="\$(git_branch)"           # prints current branch
 PS1+="\[$COLOR_BLUE\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
 export PS1
 
+alias python="python3"
+PATH=$HOME/.cask/bin:$PATH
 
 # source ~/gstatus/gitstatus.prompt.sh
 
