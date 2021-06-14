@@ -97,7 +97,8 @@ alias jd='justdo'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias ls='lsd'
+#alias ls='lsd'
+alias ls='/opt/coreutils/bin/ls --color'
 alias cl='clear'
 
 
@@ -152,12 +153,17 @@ export NVM_DIR="$HOME/.nvm"
 
 
 COLOR_DIR="$HOME/.config/alacritty/colors"
-day_color='base16-tomorrow.yml'
-dusk_color='base16-gruvbox-light-soft.yml'
+
+dawn_color='base16-gruvbox-light-soft.yml'
+day_color='base16-solarized-light-256.yml'
+sunny_color='base16-tomorrow.yml'
+dusk_color='base16-nova-256.yml'
 evening_color='base16-gruvbox-dark-soft.yml'
 night_color='base16-darktooth.yml'
 
+alias dawn="alacritty-colorscheme -C $COLOR_DIR -a $dawn_color"
 alias day="alacritty-colorscheme -C $COLOR_DIR -a $day_color"
+alias sunny="alacritty-colorscheme -C $COLOR_DIR -a $sunny_color"
 alias dusk="alacritty-colorscheme -C $COLOR_DIR -a $dusk_color"
 alias evening="alacritty-colorscheme -C $COLOR_DIR -a $evening_color"
 alias night="alacritty-colorscheme -C $COLOR_DIR -a $night_color"
@@ -185,7 +191,7 @@ unset __conda_setup
 
 CONDA_AUTO_ACTIVATE_BASE=false
 
-alias ls='lsd'
+#alias ls='lsd'
 
 COLOR_RED="\033[0;31m"
 COLOR_YELLOW="\033[0;33m"
@@ -197,6 +203,11 @@ COLOR_RESET="\033[0m"
 
 
 export PATH="/opt/clojurescript/bin:$PATH"
+export PATH="/usr/bin/hla:$PATH"
+hlalib=/usr/bin/hla/hlalib
+export hlalib
+hlainc=/usr/bin/hla/include
+export hlainc
 
 function git_color {
   local git_status="$(git status 2> /dev/null)"
@@ -238,6 +249,8 @@ PATH=$HOME/.cask/bin:$PATH
 # source ~/gstatus/gitstatus.prompt.sh
 
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+
+export PATH="$HOME/.cabal/bin:$PATH"
 
 
 
