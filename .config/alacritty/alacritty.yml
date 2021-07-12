@@ -510,38 +510,38 @@ key_bindings:
 # Base16 Solarized Light 256 - alacritty color config
 # Ethan Schoonover (modified by aramisgithub)
 colors:
-  # COLORSCHEME: base16-solarized-light-256.yml
+  # COLORSCHEME: base16-darktooth.yml
   # Default colors
   primary:
-    background: '0xfdf6e3'
-    foreground: '0x586e75'
+    background: '0x1d2021'
+    foreground: '0xa89984'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0xfdf6e3'
-    cursor: '0x586e75'
+    text: '0x1d2021'
+    cursor: '0xa89984'
 
   # Normal colors
   normal:
-    black: '0xfdf6e3'
-    red: '0xdc322f'
-    green: '0x859900'
-    yellow: '0xb58900'
-    blue: '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan: '0x2aa198'
-    white: '0x586e75'
+    black: '0x1d2021'
+    red: '0xfb543f'
+    green: '0x95c085'
+    yellow: '0xfac03b'
+    blue: '0x0d6678'
+    magenta: '0x8f4673'
+    cyan: '0x8ba59b'
+    white: '0xa89984'
 
   # Bright colors
   bright:
-    black: '0x839496'
-    red: '0xdc322f'
-    green: '0x859900'
-    yellow: '0xb58900'
-    blue: '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan: '0x2aa198'
-    white: '0x002b36'
+    black: '0x665c54'
+    red: '0xfe8625'
+    green: '0x32302f'
+    yellow: '0x504945'
+    blue: '0x928374'
+    magenta: '0xd5c4a1'
+    cyan: '0xa87322'
+    white: '0xfdf4c1'
 
   indexed_colors:
     - {index: 16, color: '0xcb4b16'}

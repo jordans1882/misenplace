@@ -174,6 +174,17 @@ local awesome_overrides = function(theme)
 	theme.layout_tile = theme.icons .. 'layouts/tile.svg'
 	theme.layout_dwindle = theme.icons .. 'layouts/dwindle.svg'
 	theme.layout_floating = theme.icons .. 'layouts/floating.svg'
+	-- TODO - add layout icons for:
+	--   - awful.layout.suit.tile.left,
+	--   - awful.layout.suit.tile.bottom,
+	--   - awful.layout.suit.tile.top,
+	--   - awful.layout.suit.fair,
+	--   - awful.layout.suit.fair.horizontal,
+        --   - awful.layout.suit.max.fullscreen,
+        --   - awful.layout.suit.magnifier,
+        --   - lain.layout.centerwork,
+        --   - lain.layout.centerwork.horizontal,
+
 	
 	-- Taglist
 	theme.taglist_bg_empty = theme.background .. '99'

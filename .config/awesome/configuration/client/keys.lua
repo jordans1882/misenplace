@@ -201,6 +201,19 @@ local client_keys = awful.util.table.join(
 	),
 
 
+    awful.key({ modkey,  "Shift"         }, "t",      function (c) c.sticky = not c.sticky            end,
+              {description = "toggle sticky", group = "client"}),
+   -- working toggle titlebar
+   awful.key({ modkey, "Control" }, "t", function (c) awful.titlebar.toggle(c)         end,
+             {description = "Show/Hide Titlebars", group="client"}),
+
+
+
+
+awful.key({ modkey, "Mod1"    }, "Right",     function () awful.tag.incmwfact( 0.01)    end), -- add descriptions
+awful.key({ modkey, "Mod1"    }, "Left",     function () awful.tag.incmwfact(-0.01)    end),
+awful.key({ modkey, "Mod1"    }, "Down",     function () awful.client.incwfact( 0.01)    end),
+awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)    end),
 
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),

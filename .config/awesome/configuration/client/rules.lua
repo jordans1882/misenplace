@@ -18,6 +18,7 @@ ruled.client.connect_signal(
 				floating = false,
 				maximized = false,
 				above = false,
+				titlebars_enabled = true,
 				below = false,
 				ontop = false,
 				sticky = false,
@@ -101,7 +102,7 @@ ruled.client.connect_signal(
 				type = {'utility'}
 			},
 			properties = {
-				titlebars_enabled = false,
+				titlebars_enabled = true,
 				floating = true,
 				skip_decoration = true,
 				placement = awful.placement.centered
@@ -116,7 +117,7 @@ ruled.client.connect_signal(
 				name = {'Discord Updater'}
 			},
 			properties = {
-				titlebars_enabled = false,
+				titlebars_enabled = true,
 				round_corners = false,
 				floating = true,
 				above = true,
@@ -139,10 +140,10 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '1',
-				switch_to_tags = true,
-				size_hints_honor = false,
-				titlebars_enabled = true
+				-- tag = '1',
+				-- switch_to_tags = true,
+				-- size_hints_honor = false,
+				-- titlebars_enabled = true
 			}
 		}
 
@@ -160,7 +161,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '2'
+				-- tag = '2'
 			}
 		}
 
@@ -180,7 +181,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '3'
+				-- tag = '3'
 			}
 		}
 
@@ -196,8 +197,8 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '4',
-				switch_to_tags = true
+				-- tag = '4',
+				-- switch_to_tags = true
 			}
 		}
 
@@ -211,9 +212,9 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '5',
-				switch_to_tags = true,
-				placement = awful.placement.centered
+				-- tag = '5',
+				-- switch_to_tags = true,
+				-- placement = awful.placement.centered
 			}
 		}
 
@@ -231,10 +232,10 @@ ruled.client.connect_signal(
 				name = {'Steam'}
 			},
 			properties = {
-				tag = '6',
-				skip_decoration = true,
-				switch_to_tags = true,
-				placement = awful.placement.centered
+				-- tag = '6',
+				-- skip_decoration = true,
+				-- switch_to_tags = true,
+				-- placement = awful.placement.centered
 			}
 		}
 
@@ -249,7 +250,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '7'
+				-- tag = '7'
 			}
 		}
 
@@ -265,7 +266,7 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '8'
+				-- tag = '8'
 			}
 		}
 
@@ -283,8 +284,8 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '9',
-				skip_decoration = true
+				-- tag = '9',
+				-- skip_decoration = true
 			}
 		}
 

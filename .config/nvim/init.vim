@@ -20,6 +20,8 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
   Plug 'jpalardy/vim-slime'
+  Plug 'python-mode/python-mode'
+  Plug 'vim-test/vim-test'
 endif
 
 " }}} Vim plugs

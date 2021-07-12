@@ -110,6 +110,11 @@ local global_keys = awful.util.table.join(
 	-- 	end,
 	-- 	{description = 'decrease gap', group = 'layout'}
 	-- ),
+
+    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
+              {description = "swap with next client by index", group = "client"}),
+    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
+              {description = "swap with previous client by index", group = "client"}),
 	awful.key(
 		{modkey},
 		'w',
