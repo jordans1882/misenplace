@@ -252,6 +252,7 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 export PATH="$HOME/.cabal/bin:$PATH"
 
+alias luarocks53="/home/jordan/git_repos/luarocks/luarocks"
 
 
 eval "$(starship init bash)"

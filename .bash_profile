@@ -29,3 +29,17 @@ alias day="alacritty-colorscheme -C $COLOR_DIR -a $day_color"
 alias dusk="alacritty-colorscheme -C $COLOR_DIR -a $dusk_color"
 alias evening="alacritty-colorscheme -C $COLOR_DIR -a $evening_color"
 alias night="alacritty-colorscheme -C $COLOR_DIR -a $night_color"
+
+# eval $(luarocks path)
+
+#export LUA_PATH='/home/jordan/.luarocks/bin:$PATH'
+export LUA_PATH='/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/home/jordan/.luarocks/share/lua/5.4/?.lua;/home/jordan/.luarocks/share/lua/5.4/?/init.lua'
+export LUA_CPATH='/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;/home/jordan/.luarocks/lib/lua/5.4/?.so'
+export PATH="~/.luarocks/bin:$PATH"
+
+#  # If on console, change cursor colour according to
+#  # /usr/src/linux/Documentation/VGA-softcursor.txt
+#  # Reset using echo -e '\033[?2c'
+#  if [ $TERM = 'linux' -a $SHELL == '/bin/bash' ] ; then
+#      echo -e '\033[?17;0;64c'
+#  fi

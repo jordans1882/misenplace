@@ -433,42 +433,8 @@ local global_keys = awful.util.table.join(
 		end,
 		{description = 'open system monitor', group = 'launcher'}
 	),
-	awful.key(
-		{modkey},
-		'p',
-		function()
-			local focused = awful.screen.focused()
-
-			if focused.left_panel then
-				focused.left_panel:hide_dashboard()
-				focused.left_panel.opened = false
-			end
-			if focused.right_panel then
-				focused.right_panel:hide_dashboard()
-				focused.right_panel.opened = false
-			end
-			awful.spawn(apps.default.rofi_appmenu, false)
-		end,
-		{description = 'open application drawer', group = 'launcher'}
-	),
-	awful.key(
-		{},
-		'XF86Launch1',
-		function()
-			local focused = awful.screen.focused()
-
-			if focused.left_panel then
-				focused.left_panel:hide_dashboard()
-				focused.left_panel.opened = false
-			end
-			if focused.right_panel then
-				focused.right_panel:hide_dashboard()
-				focused.right_panel.opened = false
-			end
-			awful.spawn(apps.default.rofi_appmenu, false)
-		end,
-		{description = 'open application drawer', group = 'launcher'}
-	),
+	awful.key({ modkey,           }, "p", function () awful.spawn("rofi -modi 'run,ssh' -show run") end,
+		  {description = "open rofi", group = "launcher"}),
 	awful.key(
 		{modkey},
 		'r',

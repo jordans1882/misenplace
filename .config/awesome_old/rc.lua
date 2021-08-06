@@ -344,7 +344,7 @@ do
         in_error = false
     end)
 end
--- }}}
+-- }}} Error Handling
 
 -- {{{ Autostart windowless processes
 local function run_once(cmd_arr)
@@ -359,7 +359,7 @@ local function run_once(cmd_arr)
 end
 
 run_once({ "unclutter -root" }) -- entries must be comma-separated
--- }}}
+-- }}} Autostart windowless processes
 
 -- {{{ Variable definitions
 
@@ -479,7 +479,7 @@ lain.layout.cascade.tile.ncol          = 2
 
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
--- }}}
+-- }}} Variable Definitions
 
 -- {{{ Menu
 local myawesomemenu = {
@@ -501,7 +501,7 @@ awful.util.mymainmenu = freedesktop.menu.build({
     }
 })
 --menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
--- }}}
+-- }}} Menu
 
 -- {{{ Screen
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -518,7 +518,7 @@ screen.connect_signal("property::geometry", function(s)
 end)
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
--- }}}
+-- }}} Screen
 
 -- {{{ Mouse bindings
 root.buttons(table_join(
@@ -526,7 +526,7 @@ root.buttons(table_join(
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
--- }}}
+-- }}} Mouse Bindings
 
 -- {{{ Key bindings
 globalkeys = table_join(
@@ -944,7 +944,7 @@ clientbuttons = table_join(
 
 -- Set keys
 root.keys(globalkeys)
--- }}}
+-- }}} Key Bindings
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
@@ -974,7 +974,7 @@ awful.rules.rules = {
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
 }
--- }}}
+-- }}} Rules
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -1061,7 +1061,7 @@ end
 client.connect_signal("focus", border_adjust)
 client.connect_signal("property::maximized", border_adjust)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
+-- }}} Signals
 
 -- -- {{{ Random backgrounds
 -- -- {{{ Function definitions
@@ -1156,3 +1156,8 @@ awful.util.spawn_with_shell("dropbox")
 -- {{{ vim modeline
 -- vim: set foldmethod=marker ts=8 sw=3 tw=80 et :
 -- }}} vim modeline
+
+-- Local Variables: --
+-- origami-fold-style: triple-braces --
+-- eval: (origami-mode) --
+-- End: --
