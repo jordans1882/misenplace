@@ -140,6 +140,10 @@ source ~/.wd
 
 [ -f ~/.private/aliases.sh ] && source ~/.private/aliases.sh
 
+[ -f ~/.aliases ] && source ~/.aliases
+
+
+
 alias r="ranger"
 
 BASE16_SHELL="$HOME/.config/base16-shell/"
