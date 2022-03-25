@@ -1,3 +1,6 @@
 [submodule "misenplace-arch"]
 	path = misenplace-arch
 	url = git@github.com:jordans1882/misenplace-arch.git
+[submodule ".scripts"]
+	path = .scripts
+	url = git@github.com:jordans1882/.scripts.git
