@@ -3,22 +3,37 @@ export PATH="~/.local/bin:$PATH"
 export PATH="~/.cask/bin:$PATH"
 
 # aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='lsd -alF'
+alias la='lsd -A'
+alias l='lsd -CF'
+alias ls='lsd'
 alias q='exit'
 
 
-source ~/.config-local/paths.sh
-source ~/.config-local/tools.sh
-source ~/.private/aliases.sh
-source ~/.machine-specific/env.sh
+if [ -f ~/.config-local/paths.sh ]; then
+    . ~/.config-local/paths.sh
+fi
+
+if [ -f ~/.config-local/tools.sh ]; then
+    . ~/.config-local/tools.sh
+fi
+
+if [ -f ~/.private/aliases.sh ]; then
+    . ~/.private/aliases.sh
+fi
+
+if [ -f ~/.machine-specific/env.sh ]; then
+    . ~/.machine-specific/env.sh
+fi
+
 
 COLOR_DIR="$HOME/.config/alacritty/colors"
 day_color='base16-tomorrow.yml'
 dusk_color='base16-gruvbox-light-soft.yml'
 evening_color='base16-gruvbox-dark-soft.yml'
 night_color='base16-darktooth.yml'
+
+GTK_THEME=Adwaita:dark
 
 # alias day="alacritty-colorscheme -C $COLOR_DIR -a $LIGHT_COLOR "
 # alias night="alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR "
@@ -43,3 +58,10 @@ export PATH="~/.luarocks/bin:$PATH"
 #  if [ $TERM = 'linux' -a $SHELL == '/bin/bash' ] ; then
 #      echo -e '\033[?17;0;64c'
 #  fi
+
+
+
+eval "$(starship init bash)"
+
+
+

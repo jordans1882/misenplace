@@ -5,7 +5,6 @@ set default-bg rgba(0.6,0.6,0.6,0.3)
 #set recolor-lightcolor #000000
 # set recolor-darkcolor #2d2d2d
 set recolor-lightcolor rgba(0.8,0.8,0.8,0.9)
-set recolor-darkcolor '#849141'
-
-#set recolor-darkcolor #FFFFFF
+# set recolor-darkcolor '#777777'
+set recolor-darkcolor '#FFFFFF'
 

@@ -1,9 +1,3 @@
-* MisEnPlace
+* Scripts
 
-This repo is a parent repo to install all MisEnPlace configurations. To
-install, simply clone and enter the repo. Then run:
-
-#+BEGIN_SRC bash
-chmod +x misenplace-installer.sh
-./misenplace-installer.sh
-#+END_SRC
+This is a collection of bash scripts

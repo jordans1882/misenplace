@@ -489,12 +489,14 @@ config.load_autoconfig(False)
 ##   - lightness-hsl: Modify colors by converting them to the HSL color space and inverting the lightness (i.e. the "L" in HSL).
 ##   - brightness-rgb: Modify colors by subtracting each of r, g, and b from their maximum value.
 # c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
+c.colors.webpage.darkmode.algorithm = 'lightness-hsl'
+# c.colors.webpage.darkmode.algorithm = 'lightness-rgb'
 
 ## Contrast for dark mode. This only has an effect when
 ## `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
 ## `brightness-rgb`.
 ## Type: Float
-# c.colors.webpage.darkmode.contrast = 0.0
+#c.colors.webpage.darkmode.contrast = 0.4
 
 ## Render all web contents using a dark theme. Example configurations
 ## from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
@@ -506,19 +508,29 @@ config.load_autoconfig(False)
 ## `colors.webpage.darkmode.threshold.background` to 205.  - "With
 ## selective inversion of everything": Combines the two variants   above.
 ## Type: Bool
+# c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.darkmode.enabled = True
+# c.colors.webpage.prefers_color_scheme_dark = True
+# c.colors.webpage.darkmode.algorithm = 'lightness-hsl'
+c.colors.webpage.darkmode.contrast = 0.05
+c.colors.webpage.darkmode.threshold.text = 150
+c.colors.webpage.darkmode.threshold.background = 200
+# c.colors.webpage.darkmode.policy.images = 'smart'
+# c.colors.webpage.darkmode.policy.images = 'always'
+# c.colors.webpage.darkmode.grayscale.images = 0.35
 
 ## Render all colors as grayscale. This only has an effect when
 ## `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
 ## `brightness-rgb`.
 ## Type: Bool
-# c.colors.webpage.darkmode.grayscale.all = False
+c.colors.webpage.darkmode.grayscale.all = True
 
 ## Desaturation factor for images in dark mode. If set to 0, images are
 ## left as-is. If set to 1, images are completely grayscale. Values
 ## between 0 and 1 desaturate the colors accordingly.
 ## Type: Float
 # c.colors.webpage.darkmode.grayscale.images = 0.0
+c.colors.webpage.darkmode.grayscale.images = 0.70
 
 ## Which images to apply dark mode to. With QtWebEngine 5.15.0, this
 ## setting can cause frequent renderer process crashes due to a
@@ -529,14 +541,15 @@ c.colors.webpage.darkmode.enabled = True
 ##   - always: Apply dark mode filter to all images.
 ##   - never: Never apply dark mode filter to any images.
 ##   - smart: Apply dark mode based on image content. Not available with Qt 5.15.0.
-# c.colors.webpage.darkmode.policy.images = 'smart'
+c.colors.webpage.darkmode.policy.images = 'smart'
 
 ## Which pages to apply dark mode to.
 ## Type: String
 ## Valid values:
 ##   - always: Apply dark mode filter to all frames, regardless of content.
 ##   - smart: Apply dark mode filter to frames based on background color.
-# c.colors.webpage.darkmode.policy.page = 'smart'
+c.colors.webpage.darkmode.policy.page = 'smart'
+# c.colors.webpage.darkmode.policy.page = 'always'
 
 ## Threshold for inverting background elements with dark mode. Background
 ## elements with brightness above this threshold will be inverted, and
@@ -544,18 +557,18 @@ c.colors.webpage.darkmode.enabled = True
 ## 256 to never invert the color or to 0 to always invert it. Note: This
 ## behavior is the opposite of `colors.webpage.darkmode.threshold.text`!
 ## Type: Int
-# c.colors.webpage.darkmode.threshold.background = 0
+c.colors.webpage.darkmode.threshold.background = 0
 
 ## Threshold for inverting text with dark mode. Text colors with
 ## brightness below this threshold will be inverted, and above it will be
 ## left as in the original, non-dark-mode page. Set to 256 to always
 ## invert text color or to 0 to never invert text color.
 ## Type: Int
-# c.colors.webpage.darkmode.threshold.text = 256
+c.colors.webpage.darkmode.threshold.text = 256
 
 ## Force `prefers-color-scheme: dark` colors for websites.
 ## Type: Bool
-# c.colors.webpage.prefers_color_scheme_dark = False
+#c.colors.webpage.prefers_color_scheme_dark = False
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
@@ -1915,9 +1928,14 @@ c.colors.webpage.darkmode.enabled = True
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 
                        'am': 'https://www.amazon.com/s?k={}',
                        'aw': 'https://wiki.archlinux.org/?search={}',
+                       'dd': 'https://duckduckgo.com/?q={}',
+                       'gg': 'https://www.google.com/search?q={}',
+                       'gh': 'https://www.github.com/search?q={}',
+                       'gl': 'https://www.gitlab.com/search?q={}',
                        'goog': 'https://www.google.com/search?q={}',
                        'gm': 'https://mail.google.com/mail/u/0/#search/{}',
                        'scho': 'https://scholar.google.com/scholar?q={}',
+                       'gs': 'https://scholar.google.com/scholar?q={}',
                        'hoog': 'https://hoogle.haskell.org/?hoogle={}',
                        're': 'https://www.reddit.com/r/{}', 
                        'wiki': 'https://en.wikipedia.org/wiki/{}',
@@ -1987,15 +2005,15 @@ config.bind(",hh", 'help')
 # config.bind(';r', 'hint --rapid links tab-bg')
 # config.bind(';t', 'hint inputs')
 # config.bind(';y', 'hint links yank')
-# config.bind('<Alt-1>', 'tab-focus 1')
-# config.bind('<Alt-2>', 'tab-focus 2')
-# config.bind('<Alt-3>', 'tab-focus 3')
-# config.bind('<Alt-4>', 'tab-focus 4')
-# config.bind('<Alt-5>', 'tab-focus 5')
-# config.bind('<Alt-6>', 'tab-focus 6')
-# config.bind('<Alt-7>', 'tab-focus 7')
-# config.bind('<Alt-8>', 'tab-focus 8')
-# config.bind('<Alt-9>', 'tab-focus -1')
+config.bind('<Alt-1>', 'tab-focus 1')
+config.bind('<Alt-2>', 'tab-focus 2')
+config.bind('<Alt-3>', 'tab-focus 3')
+config.bind('<Alt-4>', 'tab-focus 4')
+config.bind('<Alt-5>', 'tab-focus 5')
+config.bind('<Alt-6>', 'tab-focus 6')
+config.bind('<Alt-7>', 'tab-focus 7')
+config.bind('<Alt-8>', 'tab-focus 8')
+config.bind('<Alt-9>', 'tab-focus -1')
 # config.bind('<Alt-m>', 'tab-mute')
 # config.bind('<Ctrl-A>', 'navigate increment')
 # config.bind('<Ctrl-Alt-p>', 'print')
@@ -2047,20 +2065,24 @@ config.bind(',tl', 'tab-next')
 config.bind(',th', 'tab-prev')
 # config.bind('L', 'forward')
 # config.bind('M', 'bookmark-add')
+config.bind(',ba', 'bookmark-add')
 # config.bind('N', 'search-prev')
 # config.bind('O', 'set-cmd-text -s :open -t')
 # config.bind('PP', 'open -t -- {primary}')
 # config.bind('Pp', 'open -t -- {clipboard}')
 # config.bind('R', 'reload -f')
 # config.bind('Sb', 'bookmark-list --jump')
+config.bind(',bo', 'bookmark-list --jump')
 # config.bind('Sh', 'history')
 # config.bind('Sq', 'bookmark-list')
+# config.bind(',bb', 'bookmark-list')
+config.bind(',bb', 'set-cmd-text -s :bookmark-load')
 # config.bind('Ss', 'set')
 # config.bind('T', 'tab-focus')
 # config.bind('U', 'undo -w')
 # config.bind('V', 'mode-enter caret ;; selection-toggle --line')
 # config.bind('ZQ', 'quit')
-# config.bind('ZZ', 'quit --save')
+config.bind('ZZ', 'quit --save')
 # config.bind('[[', 'navigate prev')
 # config.bind(']]', 'navigate next')
 # config.bind('`', 'mode-enter set_mark')
@@ -2073,6 +2095,7 @@ config.bind(',th', 'tab-prev')
 # config.bind('g$', 'tab-focus -1')
 # config.bind('g0', 'tab-focus 1')
 # config.bind('gB', 'set-cmd-text -s :bookmark-load -t')
+config.bind('gb', 'set-cmd-text -s :bookmark-load -t')
 # config.bind('gC', 'tab-clone')
 # config.bind('gD', 'tab-give')
 # config.bind('gJ', 'tab-move +')
@@ -2092,13 +2115,18 @@ config.bind(',tH', 'tab-move -')
 # config.bind('go', 'set-cmd-text :open {url:pretty}')
 # config.bind('gt', 'set-cmd-text -s :tab-select')
 config.bind(',tt', 'set-cmd-text -s :tab-select')
-config.bind(',bb', 'set-cmd-text -s :tab-select')
+# config.bind(',bb', 'set-cmd-text -s :tab-select')
+config.bind(',<TAB><TAB>', 'set-cmd-text -s :tab-select')
 
 config.bind(',gc', 'open https://calendar.google.com/calendar')
-config.bind(',gh', 'open https://start.duckduckgo.com/')
-config.bind(',gm', 'open https://mail.google.com')
 config.bind(',gg', 'open https://www.google.com')
+config.bind(',gs', 'open https://scholar.google.com')
+config.bind(',gh', 'open https://github.com/')
+config.bind(',gl', 'open https://www.gitlab.com')
+config.bind(',gm', 'open https://mail.google.com')
 config.bind(',gy', 'open https://www.youtube.com')
+config.bind(',rr', 'restart')
+config.bind(',yy', 'open https://www.youtube.com')
 
 # config.bind('gu', 'navigate up')
 # config.bind('h', 'scroll left')
@@ -2146,6 +2174,7 @@ config.bind(',gy', 'open https://www.youtube.com')
 # config.bind('u', 'undo')
 # config.bind('v', 'mode-enter caret')
 # config.bind('wB', 'set-cmd-text -s :bookmark-load -w')
+config.bind(',wB', 'set-cmd-text -s :bookmark-load -w')
 # config.bind('wIf', 'devtools-focus')
 # config.bind('wIh', 'devtools left')
 # config.bind('wIj', 'devtools bottom')
@@ -2180,7 +2209,8 @@ config.bind(',gy', 'open https://www.youtube.com')
 # config.bind('$', 'move-to-end-of-line', mode='caret')
 # config.bind('0', 'move-to-start-of-line', mode='caret')
 # config.bind('<Ctrl-Space>', 'selection-drop', mode='caret')
-# config.bind('<Escape>', 'mode-leave', mode='caret')
+config.bind('<Escape>', 'mode-leave', mode='caret')
+config.bind('<Ctrl-G>', 'mode-leave', mode='caret')
 # config.bind('<Return>', 'yank selection', mode='caret')
 # config.bind('<Space>', 'selection-toggle', mode='caret')
 # config.bind('G', 'move-to-end-of-document', mode='caret')
@@ -2231,14 +2261,15 @@ config.bind(',gy', 'open https://www.youtube.com')
 # config.bind('<Ctrl-W>', 'rl-unix-word-rubout', mode='command')
 # config.bind('<Ctrl-Y>', 'rl-yank', mode='command')
 # config.bind('<Down>', 'completion-item-focus --history next', mode='command')
-# config.bind('<Escape>', 'mode-leave', mode='command')
+config.bind('<Escape>', 'mode-leave', mode='command')
+config.bind('<Ctrl-G>', 'mode-leave', mode='command')
 # config.bind('<PgDown>', 'completion-item-focus next-page', mode='command')
 # config.bind('<PgUp>', 'completion-item-focus prev-page', mode='command')
 # config.bind('<Return>', 'command-accept', mode='command')
 # config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 # config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
-# config.bind('<Tab>', 'completion-item-focus next', mode='command')
-# config.bind('<Up>', 'completion-item-focus --history prev', mode='command')
+config.bind('<Ctrl-N>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-P>', 'completion-item-focus --history prev', mode='command')
 
 ## Bindings for hint mode
 # config.bind('<Ctrl-B>', 'hint all tab-bg', mode='hint')
@@ -2250,6 +2281,8 @@ config.bind(',gy', 'open https://www.youtube.com')
 ## Bindings for insert mode
 # config.bind('<Ctrl-E>', 'edit-text', mode='insert')
 # config.bind('<Escape>', 'mode-leave', mode='insert')
+config.bind('<Escape>', 'mode-leave', mode='insert')
+config.bind('<Ctrl-G>', 'mode-leave', mode='insert')
 # config.bind('<Shift-Ins>', 'insert-text -- {primary}', mode='insert')
 
 ## Bindings for passthrough mode
@@ -2274,31 +2307,41 @@ config.bind(',gy', 'open https://www.youtube.com')
 # config.bind('<Ctrl-W>', 'rl-unix-word-rubout', mode='prompt')
 # config.bind('<Ctrl-X>', 'prompt-open-download', mode='prompt')
 # config.bind('<Ctrl-Y>', 'rl-yank', mode='prompt')
-# config.bind('<Down>', 'prompt-item-focus next', mode='prompt')
+config.bind('<Ctrl-N>', 'prompt-item-focus next', mode='prompt')
 # config.bind('<Escape>', 'mode-leave', mode='prompt')
+config.bind('<Escape>', 'mode-leave', mode='prompt')
+config.bind('<Ctrl-G>', 'mode-leave', mode='prompt')
 # config.bind('<Return>', 'prompt-accept', mode='prompt')
 # config.bind('<Shift-Tab>', 'prompt-item-focus prev', mode='prompt')
 # config.bind('<Tab>', 'prompt-item-focus next', mode='prompt')
-# config.bind('<Up>', 'prompt-item-focus prev', mode='prompt')
+config.bind('<Ctrl-P>', 'prompt-item-focus prev', mode='prompt')
 
 ## Bindings for register mode
 # config.bind('<Escape>', 'mode-leave', mode='register')
+config.bind('<Escape>', 'mode-leave', mode='register')
+config.bind('<Ctrl-G>', 'mode-leave', mode='register')
+
 
 ## Bindings for yesno mode
 # config.bind('<Alt-Shift-Y>', 'prompt-yank --sel', mode='yesno')
 # config.bind('<Alt-Y>', 'prompt-yank', mode='yesno')
 # config.bind('<Escape>', 'mode-leave', mode='yesno')
+config.bind('<Escape>', 'mode-leave', mode='yesno')
+config.bind('<Ctrl-G>', 'mode-leave', mode='yesno')
 # config.bind('<Return>', 'prompt-accept', mode='yesno')
 # config.bind('N', 'prompt-accept --save no', mode='yesno')
 # config.bind('Y', 'prompt-accept --save yes', mode='yesno')
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
 
+config.bind(',qq', 'quit')
 config.bind(',ap', 'config-cycle content.user_stylesheets ~/git_repos/solarized-everything-css/css/apprentice/apprentice-all-sites.css ""')
 config.bind(',dr', 'config-cycle content.user_stylesheets ~/git_repos/solarized-everything-css/css/darculized/darculized-all-sites.css ""')
-config.bind(',gr', 'config-cycle content.user_stylesheets ~/git_repos/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
+config.bind(',gd', 'config-cycle content.user_stylesheets ~/git_repos/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
+config.bind(',gl', 'config-cycle content.user_stylesheets ~/git_repos/solarized-everything-css/css/gruvbox-light/gruvbox-light-all-sites.css ""')
 config.bind(',sd', 'config-cycle content.user_stylesheets ~/git_repos/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css ""')
 config.bind(',sl', 'config-cycle content.user_stylesheets ~/git_repos/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css ""')
+config.bind(',ol', 'config-cycle content.user_stylesheets ~/git_repos/solarized-everything-css/css/one-light/one-light-all-sites.css ""')
 
 
 # config.bind(',td', 'config-cycle colors.webpage.darkmode.enabled True False')
@@ -2306,24 +2349,24 @@ config.bind(',sl', 'config-cycle content.user_stylesheets ~/git_repos/solarized-
 # QUTEBROWSER_COLOR_THEME_BEGIN
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 # Base16 qutebrowser template by theova
-# Material Darker scheme by Nate Peterson
+# Brush Trees Dark scheme by Abraham White &lt;abelincoln.white@gmail.com&gt;
 
-base00 = "#212121"
-base01 = "#303030"
-base02 = "#353535"
-base03 = "#4A4A4A"
-base04 = "#B2CCD6"
-base05 = "#EEFFFF"
-base06 = "#EEFFFF"
-base07 = "#FFFFFF"
-base08 = "#F07178"
-base09 = "#F78C6C"
-base0A = "#FFCB6B"
-base0B = "#C3E88D"
-base0C = "#89DDFF"
-base0D = "#82AAFF"
-base0E = "#C792EA"
-base0F = "#FF5370"
+base00 = "#485867"
+base01 = "#5A6D7A"
+base02 = "#6D828E"
+base03 = "#8299A1"
+base04 = "#98AFB5"
+base05 = "#B0C5C8"
+base06 = "#C9DBDC"
+base07 = "#E3EFEF"
+base08 = "#b38686"
+base09 = "#d8bba2"
+base0A = "#aab386"
+base0B = "#87b386"
+base0C = "#86b3b3"
+base0D = "#868cb3"
+base0E = "#b386b2"
+base0F = "#b39f9f"
 
 # set qutebrowser colors
 
@@ -2603,3 +2646,5 @@ c.colors.tabs.selected.even.bg = base02
 # c.colors.webpage.bg = base00
 
 # QUTEBROWSER_COLOR_THEME_END
+
+config.source('qutewal.py')

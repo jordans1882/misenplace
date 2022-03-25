@@ -4,6 +4,8 @@
 
 set -o vi
 
+[ -d ~/.scripts ] && export PATH="~/.scripts:$PATH"
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -101,6 +103,7 @@ alias l='ls -CF'
 alias ls='/opt/coreutils/bin/ls --color'
 alias cl='clear'
 
+GTK_THEME=Adwaita:dark
 
 alias q='exit'
 
@@ -257,6 +260,29 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export PATH="$HOME/.cabal/bin:$PATH"
 
 alias luarocks53="/home/jordan/git_repos/luarocks/luarocks"
+alias wallight="wal -l -i ~/wallpapers"
+alias waldark="wal -i ~/wallpapers/dark_wallpapers"
 
 
 eval "$(starship init bash)"
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
+
+
+# TODO: add control so that this only occurs if wal is installed
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# Not supported in the "fish" shell.
+(cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh
+
+alias clear="TERMINFO=/usr/share/terminfo TERM=xterm /usr/bin/clear"

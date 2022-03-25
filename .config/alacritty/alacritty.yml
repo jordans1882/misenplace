@@ -238,7 +238,8 @@ env:
 #   duration: 0
 # 
 # Background opacity
-background_opacity: 0.90
+# background_opacity: 0.90
+window.opacity: 100
 # 
 # # Key bindings
 # #
@@ -338,6 +339,10 @@ key_bindings:
   - {key: C, mods: Control|Shift, action: Copy}
   - {key: Q, mods: Control|Shift, action: Quit}
   - {key: N, mods: Control|Shift, action: SpawnNewInstance}
+  - {key: Plus, mods: Control|Shift, command: {program: /bin/bash, args: [-c, /home/jordan/.scripts/increment_alacritty_opacity]}}
+  - {key: Minus, mods: Control|Shift, command: {program: /bin/bash, args: [-c, /home/jordan/.scripts/decrement_alacritty_opacity]}}
+    # - {key: Minus, mods: Control|Shift, action: "/home/jordan/.scripts/decrement_alacritty_opacity"}
+
     # - {key: Return, mods: Control, action: ToggleFullscreen}
   - {key: Return, mods: Alt, chars: '^[^M'}
 
